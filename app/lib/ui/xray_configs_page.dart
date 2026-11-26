@@ -363,27 +363,30 @@ class _XrayConfigsPageState extends State<XrayConfigsPage> {
         ListView(
           padding: pagePadding(context).add(const EdgeInsets.only(bottom: 84)),
           children: [
-            Row(
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                Expanded(
-                  child: FilledButton.tonalIcon(
-                    onPressed: _testingAll || visibleProfiles.isEmpty
-                        ? null
-                        : () => _testAll(visibleProfiles),
-                    icon: _testingAll
-                        ? const SizedBox.square(
-                            dimension: 16,
-                            child: CircularProgressIndicator(strokeWidth: 2),
-                          )
-                        : const Icon(Icons.bolt_rounded, size: 18),
-                    label: Text(
-                      _testingAll
-                          ? '${l.xrayTesting} ($_testedCount/$_totalTesting)'
-                          : l.xrayTestAll,
-                    ),
+                FilledButton.tonalIcon(
+                  onPressed: _testingAll || visibleProfiles.isEmpty
+                      ? null
+                      : () => _testAll(visibleProfiles),
+                  icon: _testingAll
+                      ? const SizedBox.square(
+                          dimension: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.bolt_rounded, size: 18),
+                  label: Text(
+                    _testingAll
+                        ? '${l.xrayTesting} ($_testedCount/$_totalTesting)'
+                        : l.xrayTestAll,
+                    maxLines: 1,
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                const SizedBox(width: 8),
                 OutlinedButton.icon(
                   onPressed: () async {
                     final ok = await showXrayFreeConfigsDialog(
@@ -393,15 +396,18 @@ class _XrayConfigsPageState extends State<XrayConfigsPage> {
                     if (ok == true && mounted) await _load();
                   },
                   icon: const Icon(Icons.cloud_download_outlined, size: 18),
-                  label: Text(l.xrayFreeConfigs),
+                  label: Text(
+                    l.xrayFreeConfigs,
+                    maxLines: 1,
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                const SizedBox(width: 4),
                 IconButton.filledTonal(
                   tooltip: l.xraySortDelay,
                   onPressed: allProfiles.length < 2 ? null : _sortByDelay,
                   icon: const Icon(Icons.sort_rounded),
                 ),
-                const SizedBox(width: 4),
                 PopupMenuButton<String>(
                   icon: const Icon(Icons.more_vert_rounded),
                   onSelected: (v) async {

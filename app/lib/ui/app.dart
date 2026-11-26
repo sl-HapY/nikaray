@@ -176,12 +176,21 @@ class VpnApp extends StatelessWidget {
           ThemeMode.system =>
             MediaQuery.platformBrightnessOf(context) == Brightness.dark,
         };
-        return Theme(
-          data: _theme(dark ? Brightness.dark : Brightness.light, locale),
-          // A clear ring around what a remote or the keyboard chose.
-          child: FocusRing(
-            atStart: Platform.isAndroid && AndroidCore.isTv,
-            child: child!,
+        final mq = MediaQuery.of(context);
+        return MediaQuery(
+          data: mq.copyWith(
+            textScaler: mq.textScaler.clamp(
+              minScaleFactor: 0.85,
+              maxScaleFactor: 1.2,
+            ),
+          ),
+          child: Theme(
+            data: _theme(dark ? Brightness.dark : Brightness.light, locale),
+            // A clear ring around what a remote or the keyboard chose.
+            child: FocusRing(
+              atStart: Platform.isAndroid && AndroidCore.isTv,
+              child: child!,
+            ),
           ),
         );
       },
