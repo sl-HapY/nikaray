@@ -1,0 +1,28 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+**/build/
+*.iml
+.idea/
+
+# Android / Gradle / Signing
+app/android/.gradle/
+app/android/local.properties
+app/android/key.properties
+*.jks
+*.keystore
+*.apk
+*.aab
+app/android/app/libs/*.aar
+
+# Go / Build outputs
+dist/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
