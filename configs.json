@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "name": "NikaRay",
+      "description": "اشتراک اختصاصی",
+      "url": "https://mhan.slgo.ir"
+    },
+    {
+      "name": "Eternity",
+      "description": "اشتراک عمومی Base64",
+      "url": "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity"
+    },
+    {
+      "name": "Patterniha",
+      "description": "لیست کانفیگ‌های VLESS / VMess / Trojan",
+      "url": "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt#Patterniha-F"
+    },
+    {
+      "name": "Shaoyouvip",
+      "description": "فایل YAML کلش/میهومو",
+      "url": "https://raw.githubusercontent.com/shaoyouvip/free/main/mihomo.yaml"
+    }
+  ]
+}
